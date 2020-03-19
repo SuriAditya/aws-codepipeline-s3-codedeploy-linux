@@ -5,7 +5,7 @@ files:
     destination: /var/www/html/demo
 hooks:
   BeforeInstall:
-    - location: Scripts/copy.sh
+    - location: scripts/copy.sh
     
     
 
