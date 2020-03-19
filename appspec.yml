@@ -2,16 +2,10 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: 
-    if [ "$DEPLOYMENT_GROUP_NAME" == "Staging" ]; then
-       /var/www/staging
-    elif [ "$DEPLOYMENT_GROUP_NAME" == "Development" ]; then
-      /var/www/development
-    elif [ "$DEPLOYMENT_GROUP_NAME" == "Production" ]; then
-      /var/www/html
-    else
-      # Fail the deployment
-      /var/www/html
-    fi
+    destination: /var/www/html/demo
+hooks:
+  BeforeInstall:
+    - location: Scripts/copy.sh
+    
     
 
