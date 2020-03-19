@@ -2,5 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: /
+  if [ "$DEPLOYMENT_GROUP_NAME" == "Staging" ]
+  then
     destination: /var/www/html/demo
+  fi
+    
 
