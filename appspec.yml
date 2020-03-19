@@ -2,9 +2,16 @@ version: 0.0
 os: linux
 files:
   - source: /
-  if [ "$DEPLOYMENT_GROUP_NAME" == "Staging" ]
-  then
-    destination: /var/www/html/demo
-  fi
+    destination: 
+    if [ "$DEPLOYMENT_GROUP_NAME" == "Staging" ]; then
+       /var/www/staging
+    elif [ "$DEPLOYMENT_GROUP_NAME" == "Development" ]; then
+      /var/www/development
+    elif [ "$DEPLOYMENT_GROUP_NAME" == "Production" ]; then
+      /var/www/html
+    else
+      # Fail the deployment
+      /var/www/html
+    fi
     
 
